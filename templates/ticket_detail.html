@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav>
+    <a href="/"><button>Home</button></a>
+</nav>
+<hr>
+<h3>Ticket Title: {{ ticket.title }}</h3>
+<hr>
+<h4>Assigned By: </h4><a href="/user/{{ ticket.assigned_by.id }}/">{{ ticket.assigned_by }}</a>
+<br>
+<br>
+<h4>Description: </h4>{{ ticket.description }}
+<br>
+<br>
+<h4>Ticket Status: </h4>{{ ticket.ticket_status_choices }}
+<br>
+<br>
+<h4>Assigned To: </h4>{{ ticket.assigned_to }}
+<br>
+<br>
+<h4>Completed By: </h4>{{ ticket.completed_by }}
+<br>
+<br>
+{{ ticket.time_date }}
+<p>
+  <br>
+</p>
+<hr>
+<nav>
+    <a href="/ticket/{{ ticket.id }}/edit/"><button>Edit Ticket</button></a>
+    <a href="/inprogress/{{ ticket.id }}/"><button>Ticket In Progress</button></a>
+    <a href="/completed/{{ ticket.id }}/"><button>Ticket Completed</button></a>
+    <a href="/invalid/{{ ticket.id }}/"><button>Ticket Invalid</button></a>
+</nav>
+{% endblock %}
